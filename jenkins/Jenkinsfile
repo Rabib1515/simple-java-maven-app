@@ -1,6 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage('write'){
+            steps{
+                script{
+                    def date = new Date()
+                    def data = "Hello World\nSecond line\n" + date
+                    writeFile(file: 'zorg.text', text: data)
+                    sh "ls -l"
+                }
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
