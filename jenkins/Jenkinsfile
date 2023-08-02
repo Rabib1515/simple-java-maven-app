@@ -14,7 +14,7 @@ pipeline {
                         }
                     def date = new Date()
                     def data = "Hello World\nSecond line\n" + date
-                    writeFile(file: 'zorg.xml', xml: data)
+                    writeFile(file: 'zorg.text', text: data)
                     sh "ls -l"
                 }
             }
