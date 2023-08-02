@@ -15,7 +15,7 @@ pipeline {
 				+ "</s:Body>\r\n"
 				+ "\r\n"
 				+ "</s:Envelope>"
-                    writeFile(file: 'zorg.xml', text: data)
+                    writeFile(file: 'zorg.text', text: data)
                     sh "ls -l"
                 }
             }
