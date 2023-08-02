@@ -6,15 +6,7 @@ pipeline {
                 script{
                     
                     def date = new Date()
-                    def data = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n"
-				+ "\r\n"
-				+ "<s:Body>\r\n"
-				+ "\r\n"
-				+ "<Success xmlns=\"http://www.smashfly.com/services/simplepost/v2\">true</Success>\r\n"
-				+ "\r\n"
-				+ "</s:Body>\r\n"
-				+ "\r\n"
-				+ "</s:Envelope>"
+                    def data = "Hello"
                     writeFile(file: 'zorg.text', text: data)
                     sh "ls -l"
                 }
