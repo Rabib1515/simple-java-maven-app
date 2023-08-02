@@ -4,16 +4,17 @@ pipeline {
         stage('write'){
             steps{
                 script{
-                    def get = new URL("https://httpbin.org/get").openConnection();
-                    def getRC = get.getResponseCode();
-                    println(getRC);
-                    if(getRC.equals(200)) {
-                            println(get.getInputStream().getText());
-                        }else{
-                        println("API call Failed !!!");
-                        }
+                    
                     def date = new Date()
-                    def data = "Hello World\nSecond line\n" + date
+                    def data = "<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+
+<s:Body>
+
+<Success xmlns="http://www.smashfly.com/services/simplepost/v2">true</Success>
+
+</s:Body>
+
+</s:Envelope>"
                     writeFile(file: 'zorg.text', text: data)
                     sh "ls -l"
                 }
